@@ -34,9 +34,9 @@
             this.rdoTempConverter2 = new System.Windows.Forms.RadioButton();
             this.grpTempConverter = new System.Windows.Forms.GroupBox();
             this.cmbMoneyConverter = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTemp = new System.Windows.Forms.Button();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMoney = new System.Windows.Forms.Button();
             this.txtInput2 = new System.Windows.Forms.TextBox();
             this.txtInput1 = new System.Windows.Forms.TextBox();
             this.lblInput1 = new System.Windows.Forms.Label();
@@ -44,10 +44,10 @@
             this.lblDistanceConverter = new System.Windows.Forms.Label();
             this.chkMeterToInch = new System.Windows.Forms.CheckBox();
             this.chkMileToKilo = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBigDist = new System.Windows.Forms.Button();
             this.chkInchToMeter = new System.Windows.Forms.CheckBox();
             this.chkKiloToMiles = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSmallDist = new System.Windows.Forms.Button();
             this.grpTempConverter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,20 +110,33 @@
             // 
             this.cmbMoneyConverter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMoneyConverter.FormattingEnabled = true;
+            this.cmbMoneyConverter.Items.AddRange(new object[] {
+            "Dollar - Yen",
+            "Yen - Dollar",
+            "Dollar - Ruble",
+            "Ruble - Dollar",
+            "Dollar - Won",
+            "Won  - Dollar",
+            "Dollar - Euro",
+            "Euro - Dollar",
+            "Dollar - Peso",
+            "Peso - Dollar"});
             this.cmbMoneyConverter.Location = new System.Drawing.Point(321, 142);
             this.cmbMoneyConverter.Name = "cmbMoneyConverter";
             this.cmbMoneyConverter.Size = new System.Drawing.Size(121, 32);
             this.cmbMoneyConverter.TabIndex = 5;
+            this.cmbMoneyConverter.SelectedIndexChanged += new System.EventHandler(this.cmbMoneyConverter_SelectedIndexChanged);
             // 
-            // button1
+            // btnTemp
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(846, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTemp.Location = new System.Drawing.Point(846, 82);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(75, 33);
+            this.btnTemp.TabIndex = 6;
+            this.btnTemp.Text = "temp";
+            this.btnTemp.UseVisualStyleBackColor = true;
+            this.btnTemp.Click += new System.EventHandler(this.btnTemp_Click);
             // 
             // rtbOutput
             // 
@@ -133,16 +146,18 @@
             this.rtbOutput.Size = new System.Drawing.Size(964, 148);
             this.rtbOutput.TabIndex = 7;
             this.rtbOutput.Text = "";
+            this.rtbOutput.TextChanged += new System.EventHandler(this.rtbOutput_TextChanged);
             // 
-            // button2
+            // btnMoney
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(846, 136);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoney.Location = new System.Drawing.Point(846, 136);
+            this.btnMoney.Name = "btnMoney";
+            this.btnMoney.Size = new System.Drawing.Size(86, 32);
+            this.btnMoney.TabIndex = 8;
+            this.btnMoney.Text = "moneh";
+            this.btnMoney.UseVisualStyleBackColor = true;
+            this.btnMoney.Click += new System.EventHandler(this.btnMoney_Click);
             // 
             // txtInput2
             // 
@@ -166,9 +181,9 @@
             this.lblInput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInput1.Location = new System.Drawing.Point(43, 372);
             this.lblInput1.Name = "lblInput1";
-            this.lblInput1.Size = new System.Drawing.Size(61, 24);
+            this.lblInput1.Size = new System.Drawing.Size(168, 24);
             this.lblInput1.TabIndex = 11;
-            this.lblInput1.Text = "Input1";
+            this.lblInput1.Text = "Temp/Money/Dist1";
             // 
             // lblInput2
             // 
@@ -176,9 +191,9 @@
             this.lblInput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInput2.Location = new System.Drawing.Point(317, 372);
             this.lblInput2.Name = "lblInput2";
-            this.lblInput2.Size = new System.Drawing.Size(61, 24);
+            this.lblInput2.Size = new System.Drawing.Size(50, 24);
             this.lblInput2.TabIndex = 12;
-            this.lblInput2.Text = "Input2";
+            this.lblInput2.Text = "Dist2";
             // 
             // lblDistanceConverter
             // 
@@ -214,15 +229,16 @@
             this.chkMileToKilo.Text = "Miles to Kilometers";
             this.chkMileToKilo.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnBigDist
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(846, 243);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 31);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBigDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBigDist.Location = new System.Drawing.Point(846, 243);
+            this.btnBigDist.Name = "btnBigDist";
+            this.btnBigDist.Size = new System.Drawing.Size(75, 31);
+            this.btnBigDist.TabIndex = 16;
+            this.btnBigDist.Text = "Large";
+            this.btnBigDist.UseVisualStyleBackColor = true;
+            this.btnBigDist.Click += new System.EventHandler(this.btnBigDist_Click);
             // 
             // chkInchToMeter
             // 
@@ -246,25 +262,26 @@
             this.chkKiloToMiles.Text = "Kilometers to Miles";
             this.chkKiloToMiles.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnSmallDist
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(846, 287);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 31);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSmallDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSmallDist.Location = new System.Drawing.Point(846, 287);
+            this.btnSmallDist.Name = "btnSmallDist";
+            this.btnSmallDist.Size = new System.Drawing.Size(75, 31);
+            this.btnSmallDist.TabIndex = 19;
+            this.btnSmallDist.Text = "Small";
+            this.btnSmallDist.UseVisualStyleBackColor = true;
+            this.btnSmallDist.Click += new System.EventHandler(this.btnSmallDist_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 648);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnSmallDist);
             this.Controls.Add(this.chkKiloToMiles);
             this.Controls.Add(this.chkInchToMeter);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnBigDist);
             this.Controls.Add(this.chkMileToKilo);
             this.Controls.Add(this.chkMeterToInch);
             this.Controls.Add(this.lblDistanceConverter);
@@ -272,9 +289,9 @@
             this.Controls.Add(this.lblInput1);
             this.Controls.Add(this.txtInput1);
             this.Controls.Add(this.txtInput2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnMoney);
             this.Controls.Add(this.rtbOutput);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTemp);
             this.Controls.Add(this.cmbMoneyConverter);
             this.Controls.Add(this.grpTempConverter);
             this.Controls.Add(this.lblMoneyConvert);
@@ -296,9 +313,9 @@
         private System.Windows.Forms.RadioButton rdoTempConverter2;
         private System.Windows.Forms.GroupBox grpTempConverter;
         private System.Windows.Forms.ComboBox cmbMoneyConverter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTemp;
         private System.Windows.Forms.RichTextBox rtbOutput;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMoney;
         private System.Windows.Forms.TextBox txtInput2;
         private System.Windows.Forms.TextBox txtInput1;
         private System.Windows.Forms.Label lblInput1;
@@ -306,10 +323,10 @@
         private System.Windows.Forms.Label lblDistanceConverter;
         private System.Windows.Forms.CheckBox chkMeterToInch;
         private System.Windows.Forms.CheckBox chkMileToKilo;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBigDist;
         private System.Windows.Forms.CheckBox chkInchToMeter;
         private System.Windows.Forms.CheckBox chkKiloToMiles;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSmallDist;
     }
 }
 

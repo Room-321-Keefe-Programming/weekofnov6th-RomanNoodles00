@@ -17,5 +17,188 @@ namespace WeekOfNov6th
             InitializeComponent();
         }
 
+        private void rtbOutput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMoneyConverter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        //this converts temeratures
+        private void btnTemp_Click(object sender, EventArgs e)
+        {
+            if (rdoTempConverter1.Checked == true)
+            {
+
+                var celc = Convert.ToDouble (txtInput1.Text);
+                rtbOutput.Text += celc * 9/5 + 32;
+            }
+            else if(rdoTempConverter2.Checked == true)
+            {
+                var far = Convert.ToDouble(txtInput1.Text);
+                rtbOutput.Text += (far - 32) * 5 / 9;
+            }
+        }
+
+        private void btnMoney_Click(object sender, EventArgs e)
+        {
+            var money = Convert.ToDouble(txtInput1.Text);
+            //dollar to yen
+            if (cmbMoneyConverter.SelectedIndex == 0)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 149.74} Yen";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 149.74} Yen";
+                }
+            }
+            //yen to dollar
+            if (cmbMoneyConverter.SelectedIndex == 1)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 0.0067} Dollars";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 0.0067} Dollars";
+                }
+            }
+            //dollar to ruble
+            if (cmbMoneyConverter.SelectedIndex == 2)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 93.02} Rubles";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 93.02} Rubles";
+                }
+            }
+            //ruble to dollar
+            if (cmbMoneyConverter.SelectedIndex == 3)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 0.011} Dollars";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 0.011} Dollars";
+                }
+            }
+            //dollar to won
+            if (cmbMoneyConverter.SelectedIndex == 4)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 1297.20} Won";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 1297.20} Won";
+                }
+            }
+            //won to dollar
+            if (cmbMoneyConverter.SelectedIndex == 5)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 0.00077} Dollars";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 0.00077} Dollars";
+                }
+            }
+            //dollar to euro
+            if (cmbMoneyConverter.SelectedIndex == 6)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 0.93} Euros";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 0.93} Euros";
+                }
+            }
+            //euro to dollar
+            if (cmbMoneyConverter.SelectedIndex == 7)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 1.07} Dollars";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 1.07} Dollars";
+                }
+            }
+            //dollar to peso
+            if (cmbMoneyConverter.SelectedIndex == 8)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 17.57} Pesos";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 17.57} Pesos";
+                }
+            }
+            //peso to dollar
+            if (cmbMoneyConverter.SelectedIndex == 9)
+            {
+                if (rtbOutput.Text == "")
+                {
+                    rtbOutput.Text += $"{money * 0.057} Dollars";
+                }
+                else
+                {
+                    rtbOutput.Text += $" \n{money * 0.057} Dollars";
+                }
+            }
+        }
+        //converts mi and km
+        private void btnBigDist_Click(object sender, EventArgs e)
+        {
+            var distOne = Convert.ToDouble(txtInput1.Text);
+            if (rtbOutput.Text != "")
+            {
+                rtbOutput.Text += "\n";
+            }
+            if (chkMileToKilo.Checked == true)
+            {
+                rtbOutput.Text += $"{distOne} Miles is{distOne * 1.609344} Kilometers";
+            }
+            if (chkKiloToMiles.Checked == true)
+            {
+                rtbOutput.Text += $"{distOne} Kilometers is {distOne * 0.62137119} Miles";
+            }
+        }
+        //converts m and in
+        private void btnSmallDist_Click(object sender, EventArgs e)
+        {
+            var distTwo = Convert.ToDouble(txtInput2.Text);
+            if (rtbOutput.Text != "")
+            {
+                rtbOutput.Text += "\n";
+            }
+            if (chkMileToKilo.Checked == true)
+            {
+                rtbOutput.Text += $"{distTwo} Meters is{distTwo * 39.3700787} Inches";
+            }
+            if (chkKiloToMiles.Checked == true)
+            {
+                rtbOutput.Text += $"{distTwo} Inches is {distTwo * 0.0254} Meters";
+            }
+        }
     }
 }
