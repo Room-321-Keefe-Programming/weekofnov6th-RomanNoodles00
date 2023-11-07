@@ -1,11 +1,14 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace WeekOfNov6th
@@ -198,6 +201,33 @@ namespace WeekOfNov6th
             if (chkKiloToMiles.Checked == true)
             {
                 rtbOutput.Text += $"{distTwo} Inches is {distTwo * 0.0254} Meters";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            rtbOutput.LoadFile("C:/Users/racri/source/repos/weekofnov6th-RomanNoodles00/WeekOfNov6th/bin/test.txt", RichTextBoxStreamType.PlainText);
+        }
+
+        private void btn_spaces_Click(object sender, EventArgs e)
+        {
+            string file = "C:\\Users\\racri\\source\\repos\\weekofnov6th-RomanNoodles00\\WeekOfNov6th\\bin\\test.txt";
+            string contents = File.ReadAllText(file);
+            string[] spaces = contents.Split(' ');
+            string theInput = txtInput2.Text;
+            int inputTwo = int.Parse(theInput);
+            if (txtInput2.Text != "")
+            {
+                rtbOutput.Clear();
+
+                for (int i = 0; i < spaces.Length; i += inputTwo)
+                {
+                    rtbOutput.Text += spaces[i] + " ";
+                }
+            }
+            else
+            {
+                rtbOutput.Text += "saysomething";
             }
         }
     }

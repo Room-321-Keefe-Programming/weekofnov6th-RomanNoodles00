@@ -48,6 +48,8 @@
             this.chkInchToMeter = new System.Windows.Forms.CheckBox();
             this.chkKiloToMiles = new System.Windows.Forms.CheckBox();
             this.btnSmallDist = new System.Windows.Forms.Button();
+            this.btnTextFile = new System.Windows.Forms.Button();
+            this.btn_spaces = new System.Windows.Forms.Button();
             this.grpTempConverter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,9 +193,9 @@
             this.lblInput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInput2.Location = new System.Drawing.Point(317, 372);
             this.lblInput2.Name = "lblInput2";
-            this.lblInput2.Size = new System.Drawing.Size(50, 24);
+            this.lblInput2.Size = new System.Drawing.Size(135, 24);
             this.lblInput2.TabIndex = 12;
-            this.lblInput2.Text = "Dist2";
+            this.lblInput2.Text = "Dist2/Manifesto";
             // 
             // lblDistanceConverter
             // 
@@ -273,11 +275,33 @@
             this.btnSmallDist.UseVisualStyleBackColor = true;
             this.btnSmallDist.Click += new System.EventHandler(this.btnSmallDist_Click);
             // 
+            // btnTextFile
+            // 
+            this.btnTextFile.Location = new System.Drawing.Point(846, 352);
+            this.btnTextFile.Name = "btnTextFile";
+            this.btnTextFile.Size = new System.Drawing.Size(75, 58);
+            this.btnTextFile.TabIndex = 20;
+            this.btnTextFile.Text = "Manifest the Manifesto";
+            this.btnTextFile.UseVisualStyleBackColor = true;
+            this.btnTextFile.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_spaces
+            // 
+            this.btn_spaces.Location = new System.Drawing.Point(846, 417);
+            this.btn_spaces.Name = "btn_spaces";
+            this.btn_spaces.Size = new System.Drawing.Size(75, 23);
+            this.btn_spaces.TabIndex = 21;
+            this.btn_spaces.Text = "tha wordz";
+            this.btn_spaces.UseVisualStyleBackColor = true;
+            this.btn_spaces.Click += new System.EventHandler(this.btn_spaces_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 648);
+            this.Controls.Add(this.btn_spaces);
+            this.Controls.Add(this.btnTextFile);
             this.Controls.Add(this.btnSmallDist);
             this.Controls.Add(this.chkKiloToMiles);
             this.Controls.Add(this.chkInchToMeter);
@@ -327,6 +351,8 @@
         private System.Windows.Forms.CheckBox chkInchToMeter;
         private System.Windows.Forms.CheckBox chkKiloToMiles;
         private System.Windows.Forms.Button btnSmallDist;
+        private System.Windows.Forms.Button btnTextFile;
+        private System.Windows.Forms.Button btn_spaces;
     }
 }
 
