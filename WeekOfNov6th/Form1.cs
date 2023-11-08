@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using System.Security;
 
 namespace WeekOfNov6th
 {
@@ -206,11 +207,13 @@ namespace WeekOfNov6th
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //loads text file
             rtbOutput.LoadFile("C:/Users/racri/source/repos/weekofnov6th-RomanNoodles00/WeekOfNov6th/bin/test.txt", RichTextBoxStreamType.PlainText);
         }
 
         private void btn_spaces_Click(object sender, EventArgs e)
         {
+            //loads text file and turns it into an array
             string file = "C:\\Users\\racri\\source\\repos\\weekofnov6th-RomanNoodles00\\WeekOfNov6th\\bin\\test.txt";
             string contents = File.ReadAllText(file);
             string[] spaces = contents.Split(' ');
@@ -228,6 +231,112 @@ namespace WeekOfNov6th
             else
             {
                 rtbOutput.Text += "saysomething";
+            }
+        }
+
+        private void btnAlph_Click(object sender, EventArgs e)
+        {
+            // this splits the alpabet up and capitalizes the vowels
+            string printable = "";
+            string betabet = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+            string[] alphabet =  betabet.Split(',');
+            for (int i= 0; i < alphabet.Length; i++)
+            {
+                if (alphabet[i].Contains("a"))
+                {
+                    printable = alphabet[i].Replace("a", "A");
+                }
+                else if (alphabet[i].Contains("e"))
+                {
+                    printable = alphabet[i].Replace("e", "E");
+                }
+                else if (alphabet[i].Contains("i"))
+                {
+                    printable = alphabet[i].Replace("i", "I");
+                }
+                else if (alphabet[i].Contains("o"))
+                {
+                    printable = alphabet[i].Replace("o", "O");
+                }
+                else if (alphabet[i].Contains("u"))
+                {
+                    printable = alphabet[i].Replace("u", "U");
+                }
+                else
+                {
+                    printable = alphabet[i];
+                }
+                if (i != 26 && i != 0)
+                {
+                    rtbOutput.Text += ", ";
+                }
+                rtbOutput.Text += printable;
+            }
+            rtbOutput.Text += "\n\n\n";
+
+            //this is old code that i didnt want to delete yet
+
+
+            /*
+            bool done = false;
+            int j = alphabet.Length;
+            string printed = "";
+            while(j >= 0 && done == false)
+            {
+                j--;
+                if (j % 5 == 0 && j != alphabet.Length -1)
+                {
+                    rtbOutput.Text += ",";
+                    for (int i = 0; i < 5; i++)
+                    {
+
+                        if(j >= 1)
+                        {
+                            j--;
+                            printed = alphabet[j].ToUpper();
+                            rtbOutput.Text += printed;
+                        }
+                    }
+                    rtbOutput.Text += ",";
+                }
+                else
+                {
+                    printed = alphabet[j].ToLower();
+                    rtbOutput.Text += printed;
+                }
+                if (j == 0)
+                {
+                    done = true;
+                }
+            }
+            printed = alphabet[j].ToUpper();
+            rtbOutput.Text += printed;
+            */
+
+            //this alternates uppercase and lowercase
+            int count = 25;
+            bool upper = true;
+
+            while(count >= 0)
+            {
+                if(upper == true)
+                {
+                    rtbOutput.Text += alphabet[count].ToUpper();
+                }
+                else
+                {
+                    rtbOutput.Text += alphabet[count].ToLower();
+                }
+                if((count - 1) % 5 == 0)
+                {
+                    rtbOutput.Text += ",";
+                    upper = true;
+                }
+                if((count - 1) % 10 == 0)
+                {
+                    upper = false;
+                }
+                count--;
             }
         }
     }

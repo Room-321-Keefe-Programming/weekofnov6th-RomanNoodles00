@@ -50,6 +50,7 @@
             this.btnSmallDist = new System.Windows.Forms.Button();
             this.btnTextFile = new System.Windows.Forms.Button();
             this.btn_spaces = new System.Windows.Forms.Button();
+            this.btnAlph = new System.Windows.Forms.Button();
             this.grpTempConverter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,11 +296,22 @@
             this.btn_spaces.UseVisualStyleBackColor = true;
             this.btn_spaces.Click += new System.EventHandler(this.btn_spaces_Click);
             // 
+            // btnAlph
+            // 
+            this.btnAlph.Location = new System.Drawing.Point(613, 411);
+            this.btnAlph.Name = "btnAlph";
+            this.btnAlph.Size = new System.Drawing.Size(75, 42);
+            this.btnAlph.TabIndex = 22;
+            this.btnAlph.Text = "The alpha bet";
+            this.btnAlph.UseVisualStyleBackColor = true;
+            this.btnAlph.Click += new System.EventHandler(this.btnAlph_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 648);
+            this.Controls.Add(this.btnAlph);
             this.Controls.Add(this.btn_spaces);
             this.Controls.Add(this.btnTextFile);
             this.Controls.Add(this.btnSmallDist);
@@ -353,6 +365,7 @@
         private System.Windows.Forms.Button btnSmallDist;
         private System.Windows.Forms.Button btnTextFile;
         private System.Windows.Forms.Button btn_spaces;
+        private System.Windows.Forms.Button btnAlph;
     }
 }
 
