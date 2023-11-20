@@ -208,13 +208,13 @@ namespace WeekOfNov6th
         private void button1_Click(object sender, EventArgs e)
         {
             //loads text file
-            rtbOutput.LoadFile("C:/Users/racri/source/repos/weekofnov6th-RomanNoodles00/WeekOfNov6th/bin/test.txt", RichTextBoxStreamType.PlainText);
+            rtbOutput.LoadFile("../test.txt", RichTextBoxStreamType.PlainText);
         }
 
         private void btn_spaces_Click(object sender, EventArgs e)
         {
             //loads text file and turns it into an array
-            string file = "C:\\Users\\racri\\source\\repos\\weekofnov6th-RomanNoodles00\\WeekOfNov6th\\bin\\test.txt";
+            string file = "../test.txt";
             string contents = File.ReadAllText(file);
             string[] spaces = contents.Split(' ');
             string theInput = txtInput2.Text;
